@@ -9,28 +9,37 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 let s:shortmess_save = &shortmess
 set shortmess=aoO
-badd +8 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/api/notes/index.js
-badd +127 src/api/notes/handler.js
-badd +3 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/validator/notes/schema.js
-badd +13 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/validator/notes/index.js
-badd +11 src/services/inMemory/NotesService.js
-badd +9 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/exceptions/ClientError.js
-badd +10 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/exceptions/InvariantError.js
-badd +4 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/exceptions/NotFoundError.js
-badd +2 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/.gitignore
-badd +1 ./
-badd +17 package.json
-badd +14 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/migrations/1661993011604_create-table-notes.js
-badd +6 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/.env
-badd +17 src/server.js
-badd +68 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/services/postgres/NoteService.js
-badd +4 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/utils/index.js
+badd +1 src/api/notes/index.js
+badd +31 src/api/notes/handler.js
+badd +1 src/validator/notes/schema.js
+badd +7 src/validator/notes/index.js
+badd +9 src/services/inMemory/NotesService.js
+badd +1 src/exceptions/ClientError.js
+badd +1 src/exceptions/InvariantError.js
+badd +1 src/exceptions/NotFoundError.js
+badd +1 .gitignore
+badd +1 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end
+badd +1 package.json
+badd +14 migrations/1661993011604_create-table-notes.js
+badd +11 .env
+badd +45 src/server.js
+badd +31 src/services/postgres/NoteService.js
+badd +1 src/utils/index.js
+badd +1 src/api/notes/routes.js
+badd +1 .prod.env
+badd +28 migrations/1662264938794_create-table-users.js
+badd +39 src/services/postgres/UserService.js
+badd +9 src/validator/users/schema.js
+badd +1 src/validator/users/index.js
+badd +9 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/api/users/routes.js
+badd +53 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/api/users/handler.js
+badd +11 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/api/users/index.js
 argglobal
 %argdel
-$argadd ./
-edit ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/services/postgres/NoteService.js
+$argadd ~/Project/dicoding_back_end/javascript-project/notes-app-back-end
+edit src/services/postgres/UserService.js
 argglobal
-balt ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/migrations/1661993011604_create-table-notes.js
+balt ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/api/users/handler.js
 setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
