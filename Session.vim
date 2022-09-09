@@ -47,12 +47,31 @@ badd +99 src/services/postgres/NotesService.js
 badd +24 src/services/postgres/AuthenticationsService.js
 badd +14 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/migrations/1662623876525_add-column-owner-to-table-notes.js
 badd +3 ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/exceptions/AuthorizationError.js
+badd +10 migrations/1662729797373_add-foreign-key-to-owner-column.js
 argglobal
 %argdel
 $argadd src/services/postgres/AuthenticationsService.js
-edit src/api/notes/handler.js
+edit migrations/1662729797373_add-foreign-key-to-owner-column.js
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+exe '1resize ' . ((&lines * 33 + 24) / 48)
+exe '2resize ' . ((&lines * 12 + 24) / 48)
 argglobal
-balt ~/Project/dicoding_back_end/javascript-project/notes-app-back-end/src/exceptions/AuthorizationError.js
+balt src/api/notes/handler.js
 setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -61,12 +80,37 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 147 - ((25 * winheight(0) + 23) / 46)
+let s:l = 10 - ((9 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 147
-normal! 07|
+keepjumps 10
+normal! 040|
+wincmd w
+argglobal
+if bufexists(fnamemodify("term://~/Project/dicoding_back_end/javascript-project/notes-app-back-end//1374103:/usr/bin/zsh;\#toggleterm\#1", ":p")) | buffer term://~/Project/dicoding_back_end/javascript-project/notes-app-back-end//1374103:/usr/bin/zsh;\#toggleterm\#1 | else | edit term://~/Project/dicoding_back_end/javascript-project/notes-app-back-end//1374103:/usr/bin/zsh;\#toggleterm\#1 | endif
+if &buftype ==# 'terminal'
+  silent file term://~/Project/dicoding_back_end/javascript-project/notes-app-back-end//1374103:/usr/bin/zsh;\#toggleterm\#1
+endif
+balt src/api/notes/handler.js
+setlocal fdm=indent
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+let s:l = 1 - ((0 * winheight(0) + 6) / 12)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
+wincmd w
+2wincmd w
+exe '1resize ' . ((&lines * 33 + 24) / 48)
+exe '2resize ' . ((&lines * 12 + 24) / 48)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -74,6 +118,8 @@ endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
+let &winminheight = s:save_winminheight
+let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
